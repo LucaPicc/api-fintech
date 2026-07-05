@@ -1,0 +1,32 @@
+{
+  "name": "api-fintech",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Luca Piccinini",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx src/app.ts",
+    "start": "tsx src/app.ts",
+    "start:docker": "npm run db:migrate && npm run db:seed && npm run start",
+    "db:migrate": "prisma migrate deploy",
+    "db:seed": "tsx src/database/seed.ts",
+    "prisma:generate": "prisma generate",
+    "test": "node --import tsx --test \"src/transactions/**/*.test.ts\""
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.1.0",
+    "prisma": "^7.8.0",
+    "tsx": "^4.23.0",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.8.0",
+    "@prisma/client": "^7.8.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "pg": "^8.22.0"
+  }
+}
